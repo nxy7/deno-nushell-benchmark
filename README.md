@@ -48,6 +48,19 @@ Deno was 16 times faster and used 2x times more memory than Nushell.
 
 ## 1 milion rows
 
+Nu output:
+```
+╭───┬─────────────┬───────╮
+│ # │    city     │  avg  │
+├───┼─────────────┼───────┤
+│ 0 │ Houston     │ 10.03 │
+│ 1 │ Phoenix     │  9.93 │
+│ 2 │ New York    │  9.93 │
+│ 3 │ Chicago     │  9.98 │
+│ 4 │ Los Angeles │  9.96 │
+╰───┴─────────────┴───────╯
+```
+
 Nushell results:
 ```
             Mean        Std.Dev.    Min         Median      Max
@@ -56,6 +69,17 @@ user        0.732       0.024       0.706       0.729       0.774
 sys         0.205       0.009       0.191       0.203       0.217       
 maxrss      527409      350         526948      527660      527740      
 minflt      146785      383         146588      146595      147553      
+```
+
+Deno output:
+```
+[
+  { city: "Houston", avgTemperature: 10.033709541204631 },
+  { city: "Phoenix", avgTemperature: 9.932006789287124 },
+  { city: "New York", avgTemperature: 9.933804987573572 },
+  { city: "Chicago", avgTemperature: 9.97538478917931 },
+  { city: "Los Angeles", avgTemperature: 9.956839679748104 }
+]
 ```
 
 Deno results:
@@ -82,6 +106,9 @@ I expected Deno to win both tests (after all Nushell is much smaller project), b
 Deno vs Nushell, but Deno vs some rust library that Nushell uses internally. I suspect that fibonacci test was benchmarking
 both runtimes more 'fairly' (after all I could also use polars bindings or something else in Deno to achieve probably similar results).
 
+Maybe it's possible to optimize my TS code (that's very likely in fact), but I wanted to go for the easiest approach since I've wanted
+to test how both solutions will behave with idiomatic and easy to understand code.  
+
 ## Ergonomics
 
 This is probably more important thing. Have a look into rows.nu and rows.ts files to see difference between both languages. Nushell was
@@ -105,5 +132,8 @@ get's their package management system I don't think I'd reach for it for imperat
 - Web Scraping - Deno
 - Anything with more involved logic - Deno
 - Anything that's solved problem in JS Land - Deno
+
+All in all I don't think performance matters here, have a look at source code to see solutions in both languages and which ones looks better.
+Ergonomics are more important in such use cases and I think that there's no winner in this category and I'll my tools depending on the job.
 
 Cheers.
