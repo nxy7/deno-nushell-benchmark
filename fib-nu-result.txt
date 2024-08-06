@@ -1,0 +1,17 @@
+===> multitime results
+1: ./fib.nu
+            Mean        Std.Dev.    Min         Median      Max
+real        0.361       0.016       0.344       0.355       0.381       
+user        0.351       0.016       0.335       0.342       0.373       
+sys         0.008       0.001       0.006       0.007       0.010       
+maxrss      29469       221         29144       29580       29724       
+minflt      3204        8           3193        3207        3216        
+majflt      0           0           0           0           0           
+nswap       0           0           0           0           0           
+inblock     0           0           0           0           0           
+oublock     0           0           0           0           0           
+msgsnd      0           0           0           0           0           
+msgrcv      0           0           0           0           0           
+nsignals    0           0           0           0           0           
+nvcsw       2           0           2           2           2           
+nivcsw      21          23          6           10          69          
